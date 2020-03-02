@@ -47,9 +47,9 @@ $app->post('/student', function ($request, $response, $args) {
   $form_data = $request->getParsedBody();
   $data = createStudent($this->db, $form_data);
   if ($data <= 0) {
-    return $this->response->withJson(array('error' => 'add data fail'), 500);
+    return $this->response->withJson(array('error' => 'Failed to Create'), 500);
   }
-  return $this->response->withJson(array('add data' => 'success'), 200);
+  return $this->response->withJson(array('add data' => 'Successfully created'), 200);
 });
 
 $app->delete('/student/[{id}]', function ($request, $response, $args){
@@ -59,10 +59,29 @@ $app->delete('/student/[{id}]', function ($request, $response, $args){
  }
 $data = deleteStudent($this->db,$labId);
 if (empty($data)) {
-  return $this->response->withJson(array('error' => 'Deleted'), 200);
+  return $this->response->withJson(array('data' => 'Deleted'), 200);
 }
- return $this->response->withJson(array('data' => "Not deleted yet"), 404);
+ return $this->response->withJson(array('Error' => "Not deleted yet"), 404);
 });
+
+$app->delete('/gender/[{gender}]', function ($request, $response, $args){
+  $labId = $args['gender'];
+$data = deleteStudentGender($this->db,$labId);
+if (empty($data)) {
+  return $this->response->withJson(array('data' => 'Deleted'), 200);
+}
+ return $this->response->withJson(array('Error' => "Not deleted yet"), 404);
+});
+
+$app->delete('/color/[{color}]', function ($request, $response, $args){
+  $labId = $args['color'];
+$data = deleteStudentColor($this->db,$labId);
+if (empty($data)) {
+  return $this->response->withJson(array('data' => 'Deleted'), 200);
+}
+ return $this->response->withJson(array('Error' => "Not deleted yet"), 404);
+});
+
 
 $app->put('/student/[{id}]', function ($request, $response, $args){
   $labId = $args['id'];

@@ -1,0 +1,27 @@
+<html>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>// Callback to run when data is ready
+        function reqListener() {
+          var data = JSON.parse(this.responseText);
+          document.querySelector("#demo").innerHTML = data.body;
+        }
+        
+        // Create a new ajax requst
+        var oReq = new XMLHttpRequest();
+        // Fire callback on load event
+        oReq.addEventListener("load", reqListener);
+        // Create the connection to our API
+        oReq.open("GET", "http://localhost:8888/students");
+        // Fire the request
+        oReq.send();
+        </script>
+<body>
+    <div id="demo">
+
+    </div>
+    
+</div>
+
+</body>
+
+</html>

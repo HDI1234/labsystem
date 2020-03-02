@@ -86,6 +86,7 @@ $stmt = $db->prepare ($sql);
 $id = $StudentColor;
 $stmt->bindParam(':fav_color', $id, PDO::PARAM_STR);
 $stmt->execute();
+}
 
 
 //PUT

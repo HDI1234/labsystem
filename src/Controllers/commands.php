@@ -76,7 +76,6 @@ $stmt = $db->prepare ($sql);
 $id = $StudentGender;
 $stmt->bindParam(':gender', $id, PDO::PARAM_STR);
 $stmt->execute();
-return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 //Delete student by fav_color
@@ -87,8 +86,6 @@ $stmt = $db->prepare ($sql);
 $id = $StudentColor;
 $stmt->bindParam(':fav_color', $id, PDO::PARAM_STR);
 $stmt->execute();
-return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
 
 
 //PUT

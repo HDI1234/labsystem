@@ -9,7 +9,7 @@ include __DIR__ . '/commands.php';
 //read table products
 $app->get('/students', function (Request $request, Response $response, array $arg){
   $data = getAllStudents($this->db);
-  return $this->response->withJson($data, 200);
+  return $this->response->withJson(array("data successfully fetched" => $data), 200);
 });
 
 //request table products by condition

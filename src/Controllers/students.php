@@ -25,7 +25,7 @@ $app->get('/students/[{id}]', function ($request, $response, $args){
    return $this->response->withJson(array('data' => $data), 200);
 });
 
-$app->get('/gender/[{gender}]', function ($request, $response, $args){
+$app->get('/students/gender/[{gender}]', function ($request, $response, $args){
   $gender = $args['gender'];
 $data = getStudentGender($this->db,$gender);
 if (empty($data)) {
@@ -34,7 +34,7 @@ if (empty($data)) {
  return $this->response->withJson(array('data' => $data), 200);
 });
 
-$app->get('/color/[{color}]', function ($request, $response, $args){
+$app->get('/students/color/[{color}]', function ($request, $response, $args){
   $color = $args['color'];
 $data = getStudentColor($this->db,$color);
 if (empty($data)) {
@@ -64,7 +64,7 @@ if (empty($data)) {
  return $this->response->withJson(array('Error' => "Not deleted yet"), 404);
 });
 
-$app->delete('/gender/[{gender}]', function ($request, $response, $args){
+$app->delete('/student/gender/[{gender}]', function ($request, $response, $args){
   $labId = $args['gender'];
 $data = deleteStudentGender($this->db,$labId);
 if (empty($data)) {
@@ -73,7 +73,7 @@ if (empty($data)) {
  return $this->response->withJson(array('Error' => "Not deleted yet"), 404);
 });
 
-$app->delete('/color/[{color}]', function ($request, $response, $args){
+$app->delete('/student/color/[{color}]', function ($request, $response, $args){
   $labId = $args['color'];
 $data = deleteStudentColor($this->db,$labId);
 if (empty($data)) {

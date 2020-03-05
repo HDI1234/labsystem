@@ -64,7 +64,7 @@ if (empty($data)) {
  return $this->response->withJson(array('Error' => "Not deleted yet"), 404);
 });
 
-$app->delete('/student/gender/[{gender}]', function ($request, $response, $args){
+$app->delete('/students/gender/[{gender}]', function ($request, $response, $args){
   $labId = $args['gender'];
 $data = deleteStudentGender($this->db,$labId);
 if (empty($data)) {
@@ -73,7 +73,7 @@ if (empty($data)) {
  return $this->response->withJson(array('Error' => "Not deleted yet"), 404);
 });
 
-$app->delete('/student/color/[{color}]', function ($request, $response, $args){
+$app->delete('/students/color/[{color}]', function ($request, $response, $args){
   $labId = $args['color'];
 $data = deleteStudentColor($this->db,$labId);
 if (empty($data)) {
